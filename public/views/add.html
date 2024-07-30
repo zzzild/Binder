@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah jadwal</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <header class="bg-indigo-400 h-28 flex justify-center items-center">
+        <h1 class="text-center text-white text-4xl tracking-1 font-semibold">TAMBAH</h1>
+    </header>
+    
+    <main>
+        <section class="flex justify-center items-center">
+            <form action="" class="w-11/12">
+                <div class=" mt-5  h-24 bg-indigo-400  rounded-sm">
+                    <div class="flex justify-center flex-col">
+                        <label for="" class="text-center text-white text-2xl py-2 font-semibold">JUDUL</label>
+                        <input type="text" placeholder="Enter text" oninput="limitText(this, 31)" class="w-full break-all text-2xl bg-slate-200 px-3 py-3 outline-none text-center font-medium shadow-md">
+                    </div>
+                </div>
+                <div class=" mt-6 h-20 bg-indigo-400 rounded-sm">
+                    <div class="flex justify-center flex-col">
+                        <label for="" class="text-center text-white text-2xl py-1 font-semibold">WAKTU</label>
+                        <input type="time" class="w-full break-all text-lg bg-slate-200 px-2 py-2 outline-none font-medium shadow-md">
+                    </div>
+                </div>
+                <div class=" mt-6 h-20 bg-indigo-400 rounded-sm">
+                    <div class="flex justify-center flex-col">
+                        <label for="" class="text-center text-white text-2xl py-1 font-semibold">TANGGAL</label>
+                        <input type="date" class="w-full break-all text-lg bg-slate-200 px-2 py-2 outline-none font-medium shadow-md">
+                        
+                    </div>
+                </div>
+                <div class=" mt-6 h-28 bg-indigo-400  rounded-sm">
+                    <div class="flex justify-center flex-col">
+                        <label for="" class="text-center text-white text-2xl py-1 font-semibold">DESKRIPSI</label>
+                        <!-- <input type="date" class="w-full break-all text-lg bg-slate-200 px-2 py-2 outline-none font-medium"> -->
+                         <textarea name="" maxlength="100" placeholder="Enter text" rows="2"  id="" class="w-full break-all text-lg bg-slate-200 px-2 py-2 outline-none font-medium text-center shadow-md"></textarea>
+                    </div>
+                </div>
+
+                    <input type="submit" value="Tambah"  class="bg-green-600 h-12 w-full text-white text-2xl font-bold mt-7 hover:bg-green-500 shadow-md rounded-sm">
+                    <a href="home.html" class="bg-green-600 h-12 w-full text-white text-2xl font-bold my-4 hover:bg-green-500 shadow-md rounded-sm flex items-center justify-center">
+                        Kembali
+                    </a>                    
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-indigo-400 h-14 flex justify-center items-center flex-col">
+        <h1 class="text-center text-white text-md tracking-1 font-semibold" id="date"></h1>
+    </footer>
+
+    <script>
+        window.onload = () => {
+            let dateElement = document.getElementById('date');
+            updateTime = () => {
+                let time = new Date();
+                let date = String(time.getDate()).padStart(2, '0');
+                let month = String(time.getMonth() + 1).padStart(2, '0');
+                let year = time.getFullYear();
+
+                let curretDate = `${date}-${month}-${year}`;
+                dateElement.innerText = curretDate;
+            }
+            updateTime()
+        }
+    </script>
+</body>
+</html>
